@@ -9,7 +9,7 @@ export class Cliente implements ICliente{
   verClientes(): void {
     this.clientes = data.clientes
     this.clientes.forEach(clientes=>{
-      console.log(clientes);
+      console.table(clientes);
     })
   }
 
@@ -17,7 +17,7 @@ export class Cliente implements ICliente{
     this.clientes.push(cliente);
   }
 
-  clienteId(cedula: number): void {
+  clienteCedula(cedula: number): void {
     let find = this.clientes.some((cliente)=>{
       return cliente.cedula == cedula;
     });
@@ -25,11 +25,10 @@ export class Cliente implements ICliente{
       this.cliente = this.clientes.filter((cliente)=>{
         return cliente.cedula == cedula;
       })
+      console.table(this.cliente[0]);
     }else{
       "La cedula de la persona ingresada no se encuentra registrada";
     }
-    
-    throw new Error("Method not implemented.");
   }
 
   actualizarCliente(cliente: TCliente): void {
