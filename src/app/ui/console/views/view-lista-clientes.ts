@@ -1,10 +1,10 @@
-import { ListaClientes } from "../components/lista-clientes";
+import { ListCustomer } from "../components/list-customers";
 
-export class ViewListaCliente {
+export class ViewListCustomer {
 
-  constructor(private lista:ListaClientes){}
+  constructor(private list:ListCustomer){}
 
-  ViewLista(){
-    this.lista.mostrarListaClientes();
+  ViewList() {
+    this.list.ListCustomer();
   }
 }

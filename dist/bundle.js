@@ -16,57 +16,27 @@
   \************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Application = void 0;\nclass Application {\n    constructor(view_lista) {\n        this.view_lista = view_lista;\n    }\n    startApp() {\n        this.view_lista.ViewLista();\n    }\n}\nexports.Application = Application;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/app.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Application = void 0;\nclass Application {\n    constructor(view_list) {\n        this.view_list = view_list;\n    }\n    startApp() {\n        this.view_list.ViewList();\n    }\n}\nexports.Application = Application;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/app.ts?");
 
 /***/ }),
 
-/***/ "./src/app/common/constants/enum-cliente-msn.ts":
-/*!******************************************************!*\
-  !*** ./src/app/common/constants/enum-cliente-msn.ts ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.EClienteMessage = void 0;\nvar EClienteMessage;\n(function (EClienteMessage) {\n    EClienteMessage[\"LISTA_CLIENTES\"] = \"***LISTA DE CLIENTES***\";\n    EClienteMessage[\"AGREGAR_CLIENTE\"] = \"***REGISTRO DE CLIENTES***\";\n    EClienteMessage[\"CLIENTE_NOMBRE\"] = \"Registre el nombre del cliente\";\n    EClienteMessage[\"CLIENTE_APELLIDO\"] = \"Registre el apellido del cliente\";\n    EClienteMessage[\"CLIENTE_CEDULA\"] = \"Registre la cedula del cliente\";\n    EClienteMessage[\"CLIENTE_DEPOSITO\"] = \"Registre el valor del deposito\";\n    EClienteMessage[\"CLIENTE_BUSCAR_CEDULA\"] = \"Ingrese la cedula del cliente\";\n    EClienteMessage[\"CLIENTE_NO_REGISTRADO\"] = \"La cedula del cliente ingresado no se encuentra registrado\";\n})(EClienteMessage || (exports.EClienteMessage = EClienteMessage = {}));\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/common/constants/enum-cliente-msn.ts?");
-
-/***/ }),
-
-/***/ "./src/app/domain/classes/cliente-msn.ts":
-/*!***********************************************!*\
-  !*** ./src/app/domain/classes/cliente-msn.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ClienteMessage = void 0;\nclass ClienteMessage {\n    mostrarMsn(msn) {\n        console.log(msn);\n    }\n}\nexports.ClienteMessage = ClienteMessage;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/domain/classes/cliente-msn.ts?");
-
-/***/ }),
-
-/***/ "./src/app/domain/classes/cliente.ts":
-/*!*******************************************!*\
-  !*** ./src/app/domain/classes/cliente.ts ***!
-  \*******************************************/
+/***/ "./src/app/application/services/class-service/customer-service.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/application/services/class-service/customer-service.ts ***!
+  \************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Cliente = void 0;\nconst clientes_json_1 = __importDefault(__webpack_require__(/*! ../../../assets/data/clientes.json */ \"./src/assets/data/clientes.json\"));\nconst enum_cliente_msn_1 = __webpack_require__(/*! ../../common/constants/enum-cliente-msn */ \"./src/app/common/constants/enum-cliente-msn.ts\");\nclass Cliente {\n    constructor(cliente_msn) {\n        this.cliente_msn = cliente_msn;\n        this.clientes = [];\n    }\n    verClientes() {\n        this.clientes = clientes_json_1.default.clientes;\n        return this.clientes;\n    }\n    agregarCliente(cliente) {\n        this.clientes.push(cliente);\n    }\n    clienteCedula(cedula) {\n        let find = this.clientes.some((cliente) => {\n            return cliente.cedula == cedula;\n        });\n        if (find) {\n            this.cliente = this.clientes.filter((cliente) => {\n                return cliente.cedula == cedula;\n            });\n            console.table(this.cliente[0]);\n        }\n        else {\n            this.cliente_msn.mostrarMsn(enum_cliente_msn_1.EClienteMessage.CLIENTE_NO_REGISTRADO);\n        }\n    }\n    actualizarCliente(cliente) {\n        throw new Error(\"Method not implemented.\");\n    }\n}\nexports.Cliente = Cliente;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/domain/classes/cliente.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.CustomerService = void 0;\nconst customers_json_1 = __importDefault(__webpack_require__(/*! ../../../../assets/data/customers.json */ \"./src/assets/data/customers.json\"));\nclass CustomerService {\n    constructor() {\n        this.customers = [];\n    }\n    showCustomer() {\n        this.customers = customers_json_1.default.customers;\n        return this.customers;\n    }\n    addCustomer(customer) {\n        this.customers.push(customer);\n    }\n    customerIdNumber(id) {\n        throw new Error(\"Method not implemented.\");\n    }\n    updateCustomer(customer) {\n        throw new Error(\"Method not implemented.\");\n    }\n}\nexports.CustomerService = CustomerService;\n// clienteCedula(cedula: number): void {\n//   let find = this.clientes.some((cliente) => {\n//     return cliente.cedula == cedula;\n//   });\n//   if (find) {\n//     this.cliente = this.clientes.filter((cliente) => {\n//       return cliente.cedula == cedula;\n//     });\n//     console.table(this.cliente[0]);\n//   } else {\n//     this.cliente_msn.mostrarMsn(EClienteMessage.CLIENTE_NO_REGISTRADO);\n//   }\n// }\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/application/services/class-service/customer-service.ts?");
 
 /***/ }),
 
-/***/ "./src/app/services/clientes-services.ts":
-/*!***********************************************!*\
-  !*** ./src/app/services/clientes-services.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ClienteService = void 0;\nclass ClienteService {\n    constructor(_cliente) {\n        this._cliente = _cliente;\n    }\n    listaClientes() {\n        return this._cliente.verClientes();\n    }\n    postCliente(cliente) {\n        this._cliente.agregarCliente(cliente);\n    }\n}\nexports.ClienteService = ClienteService;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/services/clientes-services.ts?");
-
-/***/ }),
-
-/***/ "./src/app/ui/console/components/lista-clientes.ts":
+/***/ "./src/app/ui/console/components/list-customers.ts":
 /*!*********************************************************!*\
-  !*** ./src/app/ui/console/components/lista-clientes.ts ***!
+  !*** ./src/app/ui/console/components/list-customers.ts ***!
   \*********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ListaClientes = void 0;\nclass ListaClientes {\n    constructor(clienteSVC) {\n        this.clienteSVC = clienteSVC;\n    }\n    mostrarListaClientes() {\n        let clientes = this.clienteSVC.listaClientes();\n        clientes.forEach((cliente) => {\n            console.log(cliente);\n        });\n    }\n}\nexports.ListaClientes = ListaClientes;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/ui/console/components/lista-clientes.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ListCustomer = void 0;\nclass ListCustomer {\n    constructor(customerSVC) {\n        this.customerSVC = customerSVC;\n    }\n    ListCustomer() {\n        let customers = this.customerSVC.showCustomer();\n        customers.forEach((customer) => {\n            console.log(customer);\n        });\n    }\n}\nexports.ListCustomer = ListCustomer;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/ui/console/components/list-customers.ts?");
 
 /***/ }),
 
@@ -76,7 +46,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
   \*********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ViewListaCliente = void 0;\nclass ViewListaCliente {\n    constructor(lista) {\n        this.lista = lista;\n    }\n    ViewLista() {\n        this.lista.mostrarListaClientes();\n    }\n}\nexports.ViewListaCliente = ViewListaCliente;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/ui/console/views/view-lista-clientes.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.ViewListCustomer = void 0;\nclass ViewListCustomer {\n    constructor(list) {\n        this.list = list;\n    }\n    ViewList() {\n        this.list.ListCustomer();\n    }\n}\nexports.ViewListCustomer = ViewListCustomer;\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/app/ui/console/views/view-lista-clientes.ts?");
 
 /***/ }),
 
@@ -86,17 +56,17 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
   \**********************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst app_1 = __webpack_require__(/*! ./app/app */ \"./src/app/app.ts\");\nconst cliente_1 = __webpack_require__(/*! ./app/domain/classes/cliente */ \"./src/app/domain/classes/cliente.ts\");\nconst cliente_msn_1 = __webpack_require__(/*! ./app/domain/classes/cliente-msn */ \"./src/app/domain/classes/cliente-msn.ts\");\nconst clientes_services_1 = __webpack_require__(/*! ./app/services/clientes-services */ \"./src/app/services/clientes-services.ts\");\nconst lista_clientes_1 = __webpack_require__(/*! ./app/ui/console/components/lista-clientes */ \"./src/app/ui/console/components/lista-clientes.ts\");\nconst view_lista_clientes_1 = __webpack_require__(/*! ./app/ui/console/views/view-lista-clientes */ \"./src/app/ui/console/views/view-lista-clientes.ts\");\nconst app = new app_1.Application(new view_lista_clientes_1.ViewListaCliente(new lista_clientes_1.ListaClientes(new clientes_services_1.ClienteService(new cliente_1.Cliente(new cliente_msn_1.ClienteMessage())))));\napp.startApp();\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst app_1 = __webpack_require__(/*! ./app/app */ \"./src/app/app.ts\");\nconst customer_service_1 = __webpack_require__(/*! ./app/application/services/class-service/customer-service */ \"./src/app/application/services/class-service/customer-service.ts\");\nconst list_customers_1 = __webpack_require__(/*! ./app/ui/console/components/list-customers */ \"./src/app/ui/console/components/list-customers.ts\");\nconst view_lista_clientes_1 = __webpack_require__(/*! ./app/ui/console/views/view-lista-clientes */ \"./src/app/ui/console/views/view-lista-clientes.ts\");\nconst app = new app_1.Application(new view_lista_clientes_1.ViewListCustomer(new list_customers_1.ListCustomer(new customer_service_1.CustomerService())));\napp.startApp();\n\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/index.ts?");
 
 /***/ }),
 
-/***/ "./src/assets/data/clientes.json":
-/*!***************************************!*\
-  !*** ./src/assets/data/clientes.json ***!
-  \***************************************/
+/***/ "./src/assets/data/customers.json":
+/*!****************************************!*\
+  !*** ./src/assets/data/customers.json ***!
+  \****************************************/
 /***/ ((module) => {
 
-eval("module.exports = JSON.parse('{\"clientes\":[{\"nombre\":\"paola\",\"apellido\":\"acero\",\"cedula\":785692,\"deposito\":500},{\"nombre\":\"kevin\",\"apellido\":\"hierro\",\"cedula\":788192,\"deposito\":600}]}');\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/assets/data/clientes.json?");
+eval("module.exports = JSON.parse('{\"customers\":[{\"id\":1,\"name\":\"paola\",\"lastName\":\"acero\",\"idNumber\":785692,\"deposit\":500},{\"id\":2,\"name\":\"kevin\",\"lastName\":\"hierro\",\"idNumber\":788192,\"deposit\":600}]}');\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/assets/data/customers.json?");
 
 /***/ })
 

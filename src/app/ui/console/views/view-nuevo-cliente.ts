@@ -1,10 +1,10 @@
-import { NuevoCliente } from "../components/nuevo-cliente";
+import { NewCustomer } from "../components/new-customer";
 
 export class ViewNuevoCliente {
 
-  constructor(private nuevo:NuevoCliente){}
+  constructor(private newCustomer:NewCustomer){}
 
-  viewNuevoCliente(){
-    this.nuevo.registroCliente();
+  viewNewCustomer() {
+    this.newCustomer.registeredCustomer();
   }
 }

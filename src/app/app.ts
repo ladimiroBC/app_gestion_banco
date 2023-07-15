@@ -1,10 +1,10 @@
-import { ViewListaCliente } from "./ui/console/views/view-lista-clientes";
+import { ViewListCustomer } from "./ui/console/views/view-lista-clientes";
 
-export class Application{
+export class Application {
 
-  constructor(private view_lista:ViewListaCliente){}
+  constructor(private view_list:ViewListCustomer){}
 
-  startApp(){
-    this.view_lista.ViewLista();
+  startApp() {
+    this.view_list.ViewList();
   }
 }
