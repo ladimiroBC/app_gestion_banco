@@ -22,6 +22,6 @@ export class NewCustomer {
     this.customer_msn.showMessage(ECustomerMessage.CUSTOMER_DEPOSIT);
     this.customer.deposit = scanf("%d");
     
-    this.cusotmerSVC.updateCustomer(this.customer);
+    this.cusotmerSVC.addCustomer(this.customer);
   }
 }

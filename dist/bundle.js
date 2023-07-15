@@ -66,7 +66,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\ncons
   \****************************************/
 /***/ ((module) => {
 
-eval("module.exports = JSON.parse('{\"customers\":[{\"id\":1,\"name\":\"paola\",\"lastName\":\"acero\",\"idNumber\":785692,\"deposit\":500},{\"id\":2,\"name\":\"kevin\",\"lastName\":\"hierro\",\"idNumber\":788192,\"deposit\":600}]}');\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/assets/data/customers.json?");
+eval("module.exports = JSON.parse('{\"customers\":[{\"id\":1,\"name\":\"paola\",\"lastName\":\"acero\",\"idNumber\":785692,\"deposit\":500},{\"name\":\"kevin\",\"lastName\":\"salcedo\",\"idNumber\":788192,\"deposit\":500,\"id\":2},{\"id\":3,\"name\":\"ladimiro\",\"lastName\":\"baquero\",\"idNumber\":488192,\"deposit\":800}]}');\n\n//# sourceURL=webpack://proyecto_app_gestion_banco/./src/assets/data/customers.json?");
 
 /***/ })
 
